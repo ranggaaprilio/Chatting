@@ -1,0 +1,19 @@
+{
+  "name": "chatting-realtime",
+  "version": "1.0.0",
+  "description": "chating realtime with socket io 2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranggaaprilio/Chatting.git"
+  },
+  "author": "Rangga Aprilio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ranggaaprilio/Chatting/issues"
+  },
+  "homepage": "https://github.com/ranggaaprilio/Chatting#readme"
+}
