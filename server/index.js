@@ -14,6 +14,21 @@ const io = socketio(server);
 app.use(cors());
 app.use(router);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(function(req, res, next) {
+  req.io = io;
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
+app.post('/', function (req, res) {
+  // req.io.sockets.emit('message', { user: req.body.user,text: req.body.message})
+  req.io.sockets.to(req.body.room).emit('message', { user: req.body.user,text: req.body.message})
+  res.send('POST request to the homepage')
+})
+
 io.on('connect', (socket) => {
   socket.on('join', ({ name, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, name, room });
